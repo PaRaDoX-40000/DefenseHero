@@ -6,8 +6,11 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private int _damage=2;
     [SerializeField] private int _attackSpeed=1;
-    private Coroutine _coroutineAttackCycle;
+    [SerializeField] private int _attackRange = 2;
     private Health _targetHealth;
+    private Coroutine _coroutineAttackCycle;
+
+    public int AttackRange  => _attackRange; 
 
     public void SetTargetHealth(Health targetHealth)
     {
