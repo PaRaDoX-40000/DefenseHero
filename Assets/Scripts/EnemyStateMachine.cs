@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    [SerializeField] Attack _attack;
-    [SerializeField] MovingToTarget _movingToTarget;
-    [SerializeField] Health _targetHealth;
+    [SerializeField] private Attack _attack;
+    [SerializeField] private MovingToTarget _movingToTarget;
+    [SerializeField] private GameObject _target;
     Transform _targetTransform;
 
-    void Start()
+    public void SetTarget(GameObject target)
     {
-        _targetTransform = _targetHealth.gameObject.transform;
-        _attack.SetTargetHealth(_targetHealth);
+        _target = target;
+        _targetTransform = _target.transform;
+        _attack.SetTargetHealth(_target.GetComponent<Health>());
         _movingToTarget.SetTargetTransform(_targetTransform);
         _attack.enabled = false;
         _movingToTarget.enabled = true;
+    }
+
+    void Start()
+    {
+        
     }
 
     

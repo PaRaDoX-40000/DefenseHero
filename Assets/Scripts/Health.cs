@@ -20,5 +20,6 @@ public class Health : MonoBehaviour
     private void Death()
     {
         CharacterDeath?.Invoke();
+        CharacterDeath.RemoveAllListeners();
     } 
 }

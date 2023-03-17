@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attack: {fileID: 6650041891581334730}
   _movingToTarget: {fileID: 6650041891581334729}
-  _targetHealth: {fileID: 0}
+  _target: {fileID: 0}
 --- !u!114 &6650041891581334731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +118,19 @@ MonoBehaviour:
   _health: 100
   CharacterDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6650041891581334728}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6650041891581334730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,3 +159,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.25
+  _targetTransform: {fileID: 0}

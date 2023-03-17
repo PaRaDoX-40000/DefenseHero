@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovingToTarget : MonoBehaviour
 {
     [SerializeField] private float _speed = 0.5f;
-    private Transform _targetTransform;
+    [SerializeField] private Transform _targetTransform;
     private Coroutine _coroutineMovementCycle;
 
 
