@@ -5,8 +5,10 @@ using System.Linq;
 
 public class PoolOfEnemies : MonoBehaviour
 {
-    [SerializeField] GameObject _enemyPrefab;
-    [SerializeField] GameObject _bossEnemyPrefab;
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _bossEnemyPrefab;
+    [SerializeField] private int _amountEnemy = 15;
+    [SerializeField] private int _amountBossEnemy = 5;
     private List<GameObject> _enemies = new List<GameObject>();
     private List<GameObject> _bossEnemies= new List<GameObject>();
 
@@ -14,14 +16,14 @@ public class PoolOfEnemies : MonoBehaviour
 
     private void Start()
     {
-        for(int i =0; i <= 10; i++)
+        for(int i =0; i <= _amountEnemy; i++)
         {
             GameObject enemy = Instantiate(_enemyPrefab, new Vector3(10, 10, 0),Quaternion.identity);
             enemy.transform.parent = transform;
             enemy.SetActive(false);
             _enemies.Add(enemy);
         }
-        for (int i = 0; i <= 2; i++)
+        for (int i = 0; i <= _amountBossEnemy; i++)
         {
             GameObject enemy = Instantiate(_bossEnemyPrefab, new Vector3(10, 10, 0), Quaternion.identity);
             enemy.transform.parent = transform;

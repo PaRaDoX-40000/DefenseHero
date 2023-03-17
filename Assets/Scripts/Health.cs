@@ -5,8 +5,16 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _health=10;
+    [SerializeField] private int _maxHealth=10;
+    private int _health = 10;
     public UnityEvent CharacterDeath;
+
+    public int MaxHealth => _maxHealth; 
+
+    private void Start()
+    {
+        _health = _maxHealth;
+    }
 
     public void TakeDamage(int damage)
     {
@@ -16,10 +24,22 @@ public class Health : MonoBehaviour
             Death();
         }
     }
+    public void TakeHealing(int heal)
+    {
+        _health += heal;
+        if(_health> _maxHealth)
+        {
+            _health = _maxHealth;
+        }
+    }
 
     private void Death()
     {
         CharacterDeath?.Invoke();
         CharacterDeath.RemoveAllListeners();
     } 
+    public void RestoreAllHealth()
+    {
+        _health = _maxHealth;
+    }
 }

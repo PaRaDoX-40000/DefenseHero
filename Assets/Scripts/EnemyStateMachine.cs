@@ -7,7 +7,10 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField] private Attack _attack;
     [SerializeField] private MovingToTarget _movingToTarget;
     [SerializeField] private GameObject _target;
+    [SerializeField] private bool _boss = false;
     Transform _targetTransform;
+
+    public bool Boss => _boss;
 
     public void SetTarget(GameObject target)
     {
